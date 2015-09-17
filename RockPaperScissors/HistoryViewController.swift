@@ -30,7 +30,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("historyCell") as! HistoryTableViewCell
         
         cell.resultLabel.text = calculateResults(history[indexPath.row].p1, computerChoice: history[indexPath.row].p2)
-        
+
+        cell.backgroundColor = history[indexPath.row].p1.defeats(history[indexPath.row].p2) ? UIColor.greenColor() :  UIColor.redColor()
         
         cell.detailedResultLabel.text = "\(history[indexPath.row].p1.description) vs. \(history[indexPath.row].p2.description)"
         
